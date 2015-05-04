@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -34,4 +35,16 @@ class Product(models.Model):
     def __unicode__(self):
         return self.title
 
+class Order(models.Model):
+    detail = models.TextField(blank=True)
+
+    user = models.ForeignKey(User, blank=True, null=True)
+    product = models.ForeignKey(Product, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Order"
+        verbose_name_plural = "Orders"
+
+    def __str__(self):
+        pass
 
