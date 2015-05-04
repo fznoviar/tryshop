@@ -6,13 +6,13 @@ class ProductAdmin(admin.ModelAdmin):
     '''
         Admin View for Product
     '''
-    list_display = ('title', 'short_description', 'price')
+    list_display = ('name', 'short_description', 'price')
 
 class CategoryAdmin(admin.ModelAdmin):
     '''
         Admin View for Category
     '''
-    list_display = ('title', 'slug', 'active')
+    list_display = ('name', 'slug', 'active')
 
 admin.site.register(Category, CategoryAdmin)
 

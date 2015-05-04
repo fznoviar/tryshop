@@ -4,5 +4,16 @@
     Home
 {% endblock headline %}
 {% block content %}
-
+    <div class="row">
+      {% for x in lists %}
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="..." alt="...">
+              <div class="caption text-center">
+                <h4>Thumbnail label</h4>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
 {% endblock content %}

@@ -6,13 +6,13 @@ class PageAdmin(admin.ModelAdmin):
     '''
         Admin View for Page
     '''
-    list_display = ('title', 'types', 'order', 'featured', 'published')
+    list_display = ('name', 'active')
 
 class CategoryAdmin(admin.ModelAdmin):
     '''
         Admin View for Category
     '''
-    list_display = ('title', 'slug', 'active')
+    list_display = ('name', 'slug', 'active')
 
 admin.site.register(Category, CategoryAdmin)
 

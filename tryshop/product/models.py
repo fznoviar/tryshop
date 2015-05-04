@@ -1,8 +1,9 @@
 from django.db import models
 
 class Category(models.Model):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True)
+    ordering = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
 
     class Meta:
@@ -13,12 +14,15 @@ class Category(models.Model):
         return self.title
 
 class Product(models.Model):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True)
-    short_description = models.TextField(blank=True)
     description = models.TextField(blank=True)
+    short_description = models.TextField(blank=True)
+    active = models.BooleanField(default=True)
+    featured = models.BooleanField(default=False)
+    item_in_stock = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField(default=0)
-    picture = models.ImageField(upload_to='product/%Y/%m/%d', blank=True, null=True)
+    images = models.ImageField(upload_to='product/%Y/%m/%d', blank=True, null=True)
 
     category = models.ForeignKey(Category, blank=True, null=True)
 
