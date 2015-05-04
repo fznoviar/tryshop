@@ -1,0 +1,28 @@
+{% extends '_layouts/base.html' %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% block headline %}
+    Regist
+{% endblock headline %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 container-wrapper">
+      <div id="login" class="img-rounded">
+          <form action="" method="post">
+            <h1>Sign up</h1>
+            {% csrf_token %}
+              {{ form.non_field_errors }}
+              {% bootstrap_form form %}
+              <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <div class="form-bottom-section">
+            Already have an account? <a href="#">Login!</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
